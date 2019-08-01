@@ -1,0 +1,71 @@
+module sop_corba{
+interface ClienteInt;
+interface GestionAnteproyectos{
+
+struct anteproyectoDTO{
+ long codigo;
+ string titulo;
+ string modalidad;
+ string estudiante_1;
+ string estudiante_2;
+ string director;
+ string co_director;
+ string fechaIngreso;
+ string fechaAprobacion;
+ long concepto;
+ long estado;
+ long numeroRevision;
+};
+struct evaluadoresDTO{
+
+ long codigo;
+ string evaluador_1;
+ string conceptoEvaluador_1;
+ string fechaRevision_1;
+ string evaluador_2;
+ string conceptoEvaluador_2;
+ string fechaRevision_2;
+};
+
+struct usuarioDTO{
+
+ string nombreApellidos;
+ long identificacion;
+ string usuarioUnicauca;
+ string contrasenia;
+ string tipoUsuario;
+};
+
+struct usuarioIngresadoDTO{
+ long identificacion;
+ string usuario;
+ string contrasenia;
+};
+
+typedef sequence<anteproyectoDTO> ListaAnteproyectos;
+typedef sequence<usuarioDTO> ListaUsuarios;
+typedef sequence<evaluadoresDTO> ListaEvaluadores;
+typedef sequence<usuarioIngresadoDTO> ListaUsuariosIngresados;
+
+usuarioDTO verificarCredenciales(in string usuario, in string contrasenia);
+boolean registrarAnteproyecto(in anteproyectoDTO objAnteproyecto);
+boolean registrarUsuario(in usuarioDTO objUsuario);
+ListaAnteproyectos listarAnteproyectos();
+anteproyectoDTO buscarAnteproyecto(in long codigo);
+boolean asignarEvaluador(in long codigo, in evaluadoresDTO objEvaluador);
+long numeroFilas();
+evaluadoresDTO buscarEvaluador(in long codigo);
+boolean cambiarConceptoAnteproyecto(in long codigo);
+boolean guardarCredencialesUsuario(in string usuario, in string contrasenia);
+boolean aniadirConceptoEvaluador(in long codigo, in string concepto);
+usuarioIngresadoDTO recuperarUsuario();
+ListaUsuarios listarUsuarios();
+ListaEvaluadores listarEvaluadores();
+ListaUsuariosIngresados listarUsuariosIngresados();
+boolean registrarCliente(in ClienteInt objcllbck);
+ };
+
+interface ClienteInt{
+void recibirMensaje(in string mensaje);
+};
+};

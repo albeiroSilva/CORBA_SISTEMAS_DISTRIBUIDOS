@@ -1,0 +1,7 @@
+module sop_corba {
+ interface Solucion{
+ typedef sequence<string> ListEvaluadores;
+ boolean asignarEvaluador( in string codigoAnteproyecto, in string nombreEvaluador );
+ ListEvaluadores listarEvaluadores(in string codigoAnteproyecto);
+ };
+};
