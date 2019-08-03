@@ -62,6 +62,7 @@ public class GestionAnteproyectosImpl extends GestionAnteproyectosPOA {
 
     @Override
     public boolean registrarAnteproyecto(anteproyectoDTO objAnteproyecto) {
+        System.out.println("Registrando Anteproyecto");
         boolean bandera = false;
         try {
             
@@ -75,7 +76,7 @@ public class GestionAnteproyectosImpl extends GestionAnteproyectosPOA {
 
     @Override
     public boolean registrarUsuario(usuarioDTO objUsuario) {
-        
+        System.out.println("Registrando Usuario");
         boolean bandera = false;
         try {
             if(objUsuarioDAO.registrarUsuario(objUsuario)){
@@ -91,6 +92,7 @@ public class GestionAnteproyectosImpl extends GestionAnteproyectosPOA {
 
     @Override
     public anteproyectoDTO[] listarAnteproyectos() {
+        System.out.println("Listando Anteproyectos");
         anteproyectoDTO[] anteproyectos = null;
         try {
             anteproyectos = objAnteproyectoDAO.listarAnteproyectos();
@@ -102,6 +104,7 @@ public class GestionAnteproyectosImpl extends GestionAnteproyectosPOA {
 
     @Override
     public anteproyectoDTO buscarAnteproyecto(int codigo) {
+        System.out.println("Buscando Anteproyecto");
         anteproyectoDTO objAnteproyecto = null;
         try {
             objAnteproyecto = objAnteproyectoDAO.buscarAnteproyecto(codigo);
@@ -113,10 +116,12 @@ public class GestionAnteproyectosImpl extends GestionAnteproyectosPOA {
 
     @Override
     public boolean asignarEvaluador(int codigo, evaluadoresDTO objEvaluador) {
+        System.out.println("Asignando Evaluador");
         boolean bandera = false;
 
         try {
             if (objEvaluadorDAO.asignarEvaluador(codigo, objEvaluador)) {
+                System.out.println("Notificando");
                 notificar();
                 bandera = true;
             } 
@@ -135,6 +140,7 @@ public class GestionAnteproyectosImpl extends GestionAnteproyectosPOA {
 
     @Override
     public evaluadoresDTO buscarEvaluador(int codigo) {
+        System.out.println("Buscando Evaluador");
         evaluadoresDTO objEvaluador = null;
         try {
             objEvaluador = objEvaluadorDAO.buscarEvaluador(codigo);
@@ -146,6 +152,7 @@ public class GestionAnteproyectosImpl extends GestionAnteproyectosPOA {
 
     @Override
     public boolean cambiarConceptoAnteproyecto(int codigo) {
+        System.out.println("Cambiando Concepto Jefe");
         boolean bandera = false;
         try {
             objAnteproyectoDAO.cambiarConceptoAnteproyecto(codigo);
@@ -172,6 +179,7 @@ public class GestionAnteproyectosImpl extends GestionAnteproyectosPOA {
 
     @Override
     public boolean aniadirConceptoEvaluador(int codigo, String concepto) {
+        System.out.println("Añadiendo Concepto Evaluador");
         boolean bandera = false;
         try {
             if(objEvaluadorDAO.aniadirConceptoEvaluador(codigo, Integer.parseInt(concepto))){
@@ -191,6 +199,7 @@ public class GestionAnteproyectosImpl extends GestionAnteproyectosPOA {
 
     @Override
     public usuarioDTO[] listarUsuarios() {
+        System.out.println("Listando Usuarios");
         usuarioDTO[]usuarios = null;
         try {
             usuarios = objUsuarioDAO.listarUsuarios();
@@ -219,7 +228,7 @@ public class GestionAnteproyectosImpl extends GestionAnteproyectosPOA {
 
     @Override
     public boolean registrarCliente(ClienteInt objcllbck) {
-        System.out.println("Registrar");
+        System.out.println("Registrando cliente callback");
         boolean registro = false;
         if (!usuarios.contains(objcllbck)) {
             registro = usuarios.add(objcllbck);

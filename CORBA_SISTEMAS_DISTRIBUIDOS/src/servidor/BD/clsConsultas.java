@@ -63,31 +63,31 @@ public class clsConsultas {
         return varConsulta;
     }
        public String obtenerEvaluador1(int codigo) {
-        String varConsulta = "SELECT usuarios.nombreApe FROM usuarios WHERE identificacion = \n"
+        String varConsulta = "SELECT usuarios.usuario FROM usuarios WHERE identificacion = \n"
                 + "(SELECT MAX(usuario_anteproyecto.identificacion) AS ID\n"
                 + "FROM usuario_anteproyecto INNER JOIN anteproyecto ON (usuario_anteproyecto.codigoAnte = anteproyecto.codigoAnte)\n"
                 + "WHERE usuario_anteproyecto.rolAnte = 2 AND anteproyecto.codigoAnte = " + codigo + " )";
         return varConsulta;
     }
      public String obtenerEvaluador2(int codigo) {
-        String varConsulta = "SELECT usuarios.nombreApe FROM usuarios WHERE identificacion = \n"
+        String varConsulta = "SELECT usuarios.usuario FROM usuarios WHERE identificacion = \n"
                 + "(SELECT MIN(usuario_anteproyecto.identificacion) AS ID\n"
                 + "FROM usuario_anteproyecto INNER JOIN anteproyecto ON (usuario_anteproyecto.codigoAnte = anteproyecto.codigoAnte)\n"
                 + "WHERE usuario_anteproyecto.rolAnte = 2 AND anteproyecto.codigoAnte = " + codigo + " )";
         return varConsulta;
     }
-    public String obtenerConceptoEvaluador1(String nombre) {
+    public String obtenerConceptoEvaluador1(String nombre, int codigo) {
         String varConsulta = "SELECT usuario_anteproyecto.concepto \n"
                 + "FROM usuario_anteproyecto \n"
                 + "WHERE usuario_anteproyecto.identificacion =(SELECT usuarios.identificacion \n"
-                + "from usuarios where usuarios.nombreApe = "+"'"+nombre+"'"+") AND usuario_anteproyecto.rolAnte = 2";
+                + "from usuarios where usuarios.usuario = "+"'"+nombre+"'"+") AND usuario_anteproyecto.rolAnte = 2 AND usuario_anteproyecto.codigoAnte = "+codigo+"";
         return varConsulta;
     }
-     public String obtenerConceptoEvaluador2(String nombre) {
+     public String obtenerConceptoEvaluador2(String nombre, int codigo) {
         String varConsulta = "SELECT usuario_anteproyecto.concepto \n"
                 + "FROM usuario_anteproyecto \n"
                 + "WHERE usuario_anteproyecto.identificacion =(SELECT usuarios.identificacion \n"
-                + "from usuarios where usuarios.nombreApe = "+"'"+nombre+"'"+") AND usuario_anteproyecto.rolAnte = 2";
+                + "from usuarios where usuarios.usuario = "+"'"+nombre+"'"+") AND usuario_anteproyecto.rolAnte = 2 AND usuario_anteproyecto.codigoAnte = "+codigo+"";
         return varConsulta;
     }
     public String recuperarEstado(int codigo) {
@@ -195,6 +195,10 @@ public class clsConsultas {
      
      public String verificarExistenciaDeUsuario(String usuario){
         String varConsulta =  "SELECT usuario FROM usuarios WHERE usuario = "+"'"+usuario+"'";
+        return varConsulta;
+    }
+     public String verificarExistenciaDeIdentificacion(int id){
+        String varConsulta =  "SELECT identificacion FROM usuarios WHERE identificacion = "+id+"";
         return varConsulta;
     }
     public String buscarEvaluadorAsignado(int codigo){

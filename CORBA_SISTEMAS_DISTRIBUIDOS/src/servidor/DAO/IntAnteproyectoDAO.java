@@ -14,11 +14,9 @@ import sop_corba.GestionAnteproyectosPackage.anteproyectoDTO;
  * @author USERPC
  */
 public interface IntAnteproyectoDAO {
-    
     public boolean registrarAnteproyecto(anteproyectoDTO objAnteproyecto) throws SQLException;
     public anteproyectoDTO[] listarAnteproyectos()throws SQLException ;
     public anteproyectoDTO buscarAnteproyecto(int codigo)throws SQLException ;
     public long numeroFilas()throws SQLException;
-    public boolean cambiarConceptoAnteproyecto(int codigo) throws SQLException;
-    
+    public boolean cambiarConceptoAnteproyecto(int codigo) throws SQLException; 
 }

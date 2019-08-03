@@ -37,7 +37,7 @@ public class ServidorDeObjetos {
 
       // *** Realiza el binding de la referencia de objeto en el N_S ***
       String name = "objAnteproyectos";
-      NameComponent path[] = ncref.to_name( name );
+      NameComponent path[] = ncref.to_name(name);
       ncref.rebind(path, href);
 
       System.out.println("El Servidor esta listo y esperando ...");

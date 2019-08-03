@@ -36,7 +36,7 @@ public class ClsUsuarioDAOImpl implements IntUsuarioDAO{
     public boolean registrarUsuario(usuarioDTO objUsuario)throws SQLException {
         boolean bandera = false;
         
-        if (!verificarExistenciaDeUsuario(objUsuario.getUsuarioUnicauca())) {
+        if (!verificarExistenciaDeUsuario(objUsuario.getUsuarioUnicauca()) && !verificarExistenciaDeIdentificacion(objUsuario.getIdentificacion())) {
             Connection cn = objConexion.ConectarMySQL();
 
             String identificacion = Integer.toString(objUsuario.getIdentificacion());
@@ -151,6 +151,20 @@ public class ClsUsuarioDAOImpl implements IntUsuarioDAO{
             usuarioE = rs.getString(1);
         }
         if (usuario.equals(usuarioE)) {
+            bandera = true;
+        }
+        return bandera;
+    }
+     public boolean verificarExistenciaDeIdentificacion(int id)throws SQLException{
+        boolean bandera = false;
+        String varConsulta = objConsultas.verificarExistenciaDeIdentificacion(id);
+        ResultSet rs = objConexion.ObtenerObjDeConsulta(varConsulta);
+        String identificacion = "";
+        
+        while (rs.next()) {            
+            identificacion = rs.getString(1);
+        }
+        if (Integer.toString(id).equals(identificacion)) {
             bandera = true;
         }
         return bandera;

@@ -45,7 +45,7 @@ public class clsRegistrarUsuariosJefeDeDepartamento extends javax.swing.JFrame {
             if (objRemoto.registrarUsuario(objUsuario)) {
                 JOptionPane.showMessageDialog(null, "Registro realizado con éxito");
             } else {
-                JOptionPane.showMessageDialog(null, "El usuarioUnicauca ya se encuentra registrado");
+                JOptionPane.showMessageDialog(null, "La identificación o el usuarioUnicauca  ya se encuentran registrados");
             }
         }
 
