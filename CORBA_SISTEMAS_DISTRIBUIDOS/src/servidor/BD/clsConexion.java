@@ -52,6 +52,7 @@ public class clsConexion {
             JOptionPane.showMessageDialog(null, "ERROR AL CONSULTAR");
             return null;
         }
+        
     }
 
 }

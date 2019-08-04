@@ -1,6 +1,5 @@
-package sop_corba.GestionAnteproyectosPackage;
+package servidor.DTO;
 
-import servidor.DTO.*;
 import sop_corba.GestionAnteproyectosPackage.*;
 
 

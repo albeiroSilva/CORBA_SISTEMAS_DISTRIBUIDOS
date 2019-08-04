@@ -118,14 +118,14 @@ public class ClsEvaluadorDAOImpl implements IntEvaluadorDAO {
             evaluador2 = rs1.getString(1);
         }
         
-        String varConsulta2 = objConsultas.obtenerConceptoEvaluador1(evaluador1);
+        String varConsulta2 = objConsultas.obtenerConceptoEvaluador1(evaluador1, codigo);
         ResultSet rs2 = objConexion.ObtenerObjDeConsulta(varConsulta2);
         String conceptoEvaluador1 = "";
         while (rs2.next()) {            
             conceptoEvaluador1 = rs2.getString(1);
         }
         
-        String varConsulta3 = objConsultas.obtenerConceptoEvaluador2(evaluador2);
+        String varConsulta3 = objConsultas.obtenerConceptoEvaluador2(evaluador2, codigo);
         ResultSet rs3 = objConexion.ObtenerObjDeConsulta(varConsulta3);
         String conceptoEvaluador2 = "";
         while (rs3.next()) {            
@@ -136,7 +136,8 @@ public class ClsEvaluadorDAOImpl implements IntEvaluadorDAO {
         evaluadoresDTO objEvaluador = new evaluadoresDTO();
         
   
-            
+            System.out.println("concepto1: "+conceptoEvaluador1);
+            System.out.println("concepto2: "+conceptoEvaluador2);
             objEvaluador.setCodigo(codigo);
             objEvaluador.setEvaluador_1(evaluador1);
             objEvaluador.setConceptoEvaluador_1(conceptoEvaluador1);

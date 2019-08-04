@@ -176,6 +176,7 @@ public class ClsAnteproyectoDAOImpl implements IntAnteproyectoDAO{
             listaAnteproyectos.add(objAnteproyecto);
 
         }
+        
 
         return listaAnteproyectos.toArray(anteproyectos);
     }
@@ -227,6 +228,7 @@ public class ClsAnteproyectoDAOImpl implements IntAnteproyectoDAO{
             objAnteproyecto.setEstudiante_1(estudiante1);
             objAnteproyecto.setEstudiante_2(estudiante2);
             objAnteproyecto.setConcepto(Integer.parseInt(rs.getString(4)));
+            
             objAnteproyecto.setEstado(Integer.parseInt(rs.getString(5)));
             objAnteproyecto.setNumeroRevision(Integer.parseInt(rs.getString(6)));
             
@@ -235,6 +237,7 @@ public class ClsAnteproyectoDAOImpl implements IntAnteproyectoDAO{
             objAnteproyecto.setFechaAprobacion(rs.getString(8));
             
         }
+        
         return objAnteproyecto;
     }
 

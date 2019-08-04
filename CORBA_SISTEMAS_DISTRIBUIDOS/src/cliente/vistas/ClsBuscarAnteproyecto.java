@@ -229,8 +229,8 @@ public class ClsBuscarAnteproyecto extends javax.swing.JFrame {
             }else if (objAnteproyecto.getEstado() == 4) {
                 jTextArea1.append("ESTADO:  Revisado");
             }
-            jTextArea1.append(System.getProperty("line.separator"));
-            jTextArea1.append("NÚMERO DE REVISIÓN:  "+objAnteproyecto.getNumeroRevision());
+//            jTextArea1.append(System.getProperty("line.separator"));
+//            jTextArea1.append("NÚMERO DE REVISIÓN:  "+objAnteproyecto.getNumeroRevision());
             jTextArea1.append(System.getProperty("line.separator"));
             if (objEvaluador.getEvaluador_1().equals("")) {
                 jTextArea1.append("EVALUAOR 1:  Sin evaluador");
@@ -240,11 +240,21 @@ public class ClsBuscarAnteproyecto extends javax.swing.JFrame {
             }else {
                 jTextArea1.append("EVALUADOR 1:  "+objEvaluador.getEvaluador_1());
                 jTextArea1.append(System.getProperty("line.separator"));
-                jTextArea1.append("CONCEPTO EVALUAODOR 1:  "+objEvaluador.getConceptoEvaluador_1());
+                if (Integer.parseInt(objEvaluador.getConceptoEvaluador_1())==1) {
+                    jTextArea1.append("CONCEPTO EVALUAODOR 1:  Aprobado"+objEvaluador.getConceptoEvaluador_1());
+                }else{
+                    jTextArea1.append("CONCEPTO EVALUAODOR 1:  No Aprobado"+objEvaluador.getConceptoEvaluador_1());
+                }
+                
                 jTextArea1.append(System.getProperty("line.separator"));
                 jTextArea1.append("EVALUAODOR 2:  "+objEvaluador.getEvaluador_2());
                 jTextArea1.append(System.getProperty("line.separator"));
-                jTextArea1.append("CONCEPTO EVALUAODOR 2:  "+objEvaluador.getConceptoEvaluador_2());
+                if (Integer.parseInt(objEvaluador.getConceptoEvaluador_2())==1) {
+                    jTextArea1.append("CONCEPTO EVALUAODOR 2:  Aprobado"+objEvaluador.getConceptoEvaluador_2());
+                }else{
+                    jTextArea1.append("CONCEPTO EVALUAODOR 2:  No Aprobado"+objEvaluador.getConceptoEvaluador_2());
+                }
+               
                 jTextArea1.append(System.getProperty("line.separator"));
                 
             }

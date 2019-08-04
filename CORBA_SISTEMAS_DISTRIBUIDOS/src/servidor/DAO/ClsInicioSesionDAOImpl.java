@@ -80,6 +80,7 @@ public class ClsInicioSesionDAOImpl implements IntInicioDeSesionDAO {
                 objUsuario.setTipoUsuario(rs.getString(5));
             }
         }
+           
 
         return objUsuario;
         

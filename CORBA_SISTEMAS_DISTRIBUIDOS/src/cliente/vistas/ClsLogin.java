@@ -9,6 +9,10 @@ import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.omg.CORBA.ORBPackage.InvalidName;
+import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
+import org.omg.PortableServer.POAPackage.ServantNotActive;
+import org.omg.PortableServer.POAPackage.WrongPolicy;
 import sop_corba.GestionAnteproyectosOperations;
 import sop_corba.GestionAnteproyectosPackage.usuarioDTO;
 
@@ -94,6 +98,8 @@ public class ClsLogin extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(51, 255, 0));
+        jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +107,7 @@ public class ClsLogin extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,6 +250,14 @@ public class ClsLogin extends javax.swing.JFrame {
                 objMenuEvaluador = new ClsMenuEvaluador(objRemoto, usuarioUniucauca);
             } catch (RemoteException ex) {
                 Logger.getLogger(ClsLogin.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvalidName ex) {
+                Logger.getLogger(ClsLogin.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (AdapterInactive ex) {
+                Logger.getLogger(ClsLogin.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ServantNotActive ex) {
+                Logger.getLogger(ClsLogin.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (WrongPolicy ex) {
+                Logger.getLogger(ClsLogin.class.getName()).log(Level.SEVERE, null, ex);
             }
             objMenuEvaluador.setVisible(true);
             this.setVisible(false);
@@ -256,7 +271,7 @@ public class ClsLogin extends javax.swing.JFrame {
             objMenuDirector.setVisible(true);
             this.setVisible(false);
         }else if (objUsuario.getTipoUsuario().equals("5")) {
-            JOptionPane.showMessageDialog(null, "Usted no tiene rol en ningún anteproyecto");
+            JOptionPane.showMessageDialog(null, "Usted está registrado tiene ningún rol en ningún anteproyecto");
         } else {
             JOptionPane.showMessageDialog(null, "usuario no encontrado");
         }

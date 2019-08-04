@@ -10,9 +10,8 @@ import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 
 import sop_corba.*;
-import sop_corba.GestionAnteproyectosPackage.anteproyectoDTO;
 import sop_corba.GestionAnteproyectosPackage.anteproyectoDTOHolder;
-import sop_corba.GestionAnteproyectosPackage.usuarioDTO;
+
 
 public class ClienteDeObjetos
 {
